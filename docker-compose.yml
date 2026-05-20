@@ -7,7 +7,6 @@ services:
         ipv4_address: 10.42.42.43
     environment:
       TZ: 'Europe/Warsaw'
-      FTLCONF_webserver_api_password: 'correct horse battery staple'
       FTLCONF_dns_listeningMode: 'ALL'
     volumes:
       - './etc-pihole:/etc/pihole'
