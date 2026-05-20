@@ -1,0 +1,22 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    networks:
+      wg:
+        ipv4_address: 10.42.42.43
+    environment:
+      TZ: 'Europe/Warsaw'
+      FTLCONF_webserver_api_password: 'correct horse battery staple'
+      FTLCONF_dns_listeningMode: 'ALL'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+    cap_add:
+      - NET_ADMIN
+      - SYS_TIME
+      - SYS_NICE
+    restart: unless-stopped
+
+networks:
+  wg:
+    external: true
